@@ -6,13 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bus mall</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Ranchers&display=swap" rel="stylesheet">
+    
 </head>
 
-<body>
+<body id="gradient">
     <main>
-        <h1>BUS MALL</h1>
+       
+        <h1>BUS MALL <b></b> </h1>
+       <img id="bus" src="/img/1024px-BSicon_BUS.svg.png" alt="">
+  
+    </section>
+    <div id="filltext">
+        a catalog of assorted high-markup products provided to a captive audience seeking a mental escape from the drudgery of travel. The difference with BusMall is that instead of their catalog being placed in airplanes, they are placed on local busses while commuting through traffic.    </div>
         <div id="imageSection">
+            <p>You have up to 25 votes
+            </p>
             <img id="first-image" src="" alt="">
             <img id="second-image" src="" alt="">
             <img id="third-image" src="" alt="">
@@ -21,8 +30,9 @@
     </main>
     
     <canvas id="productChart" height="200" width="200"></canvas>
-   
+    
     <footer>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
         <script src="app.js"></script>
     </footer>
 </body>
