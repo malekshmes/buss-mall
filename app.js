@@ -27,7 +27,6 @@ var secondImageIndex = 0;
 var thirdImageIndex = 0;
 
 
-
 function getRandomImage() {
   // the new conditions for the testArray lab12 not working
   do {
@@ -99,6 +98,10 @@ new Product('water-can', 'img/water-can.jpg');
 new Product('wine-glass', 'img/wine-glass.jpg');
 
 getRandomImage();
+if (localStorage.getItem('JSONproducts')) {
+  selections = [];
+  selections = JSON.parse(localStorage.getItem('JSONproducts'));
+}
 
 
 var imageSection = document.getElementById('imageSection');
@@ -131,10 +134,7 @@ function calculateSelections(event) {
     chartIt();
     // console.log(displayData);
   }
-
-
-
-
+  localStorage.setItem('JSONproducts', JSON.stringify(selections));
 }
 
 var xlabels = [];
@@ -145,7 +145,7 @@ function displayResults() {
   for (var i = 0; i < selections.length; i++) {
     var listItems = document.createElement('li');
     ulEL.appendChild(listItems);
-    listItems.textContent = selections[i].name + ' Number of votes ' + selections[i].clicks + '. Displaying times for this image ' + selections[i].dispalyTimes;
+    listItems.textContent = selections[i].name + ' Number of votes: ' + selections[i].clicks + '. Displaying times for this image ' + selections[i].dispalyTimes;
     var productName = selections[i].name;
     xlabels.push(productName);
     // console.log(productName);
@@ -158,11 +158,9 @@ function displayResults() {
   }
 
 }
-// chartIt();
 function chartIt() {
   var ctx = document.getElementById('productChart').getContext('2d');
   console.log(myChart);
-  // var ctx = document.getElementById('myChart').getContext('2d');
   var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
